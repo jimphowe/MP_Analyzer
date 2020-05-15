@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+
+import requests
+import re
+import sys
+import time
+
+sys.setrecursionlimit(100000)
+
+num_climbs = 200
+boulders = []
+routes = []
+
+# Set up a session
+s = requests.session()
+
+# Get links from a html page
+def get_links(content):
+  links = re.findall('''<a\s+(?:[^>]*?\s+)?href="([^"]*)"''', content)  
+  return links
+
+# Get boulders from an HTML page
+def get_climbs(content,url):
+  grades = re.findall('''<h2 class="inline-block mr-2"><span class='rateYDS'>(...)''',content)
+  ratings = re.findall('''&nbsp;Avg: (...)''', content)
+  if len(grades) > 0 and len(ratings) > 0:
+    url = url.split('/')
+    name = url[-1]
+    rating = ratings[0]
+    if rating[-1] == 'f':
+      rating = rating[0]
+    grade = grades[0]
+    if grade[0] == 'V':
+      grade = grade[:2]
+      print('Found boulder: ' + name + ": " + grade + ", " + rating + "/4 stars.")
+      boulders.append((grade,rating))
+    if grade[0] == '5':
+      grade = grade
+      print('Found route: ' + name + ": " + grade + ", " + rating + "/4 stars.")
+      routes.append((grade,rating))
+
+# Set of seen links
+visited = set()
+
+# Types of link we don't want to follow...
+ignore = ['google','facebook','login','user','help','edit','share','upload','add','photo','forum','stats','print','map']
+
+# Crawl a link
+def crawl(url):
+  print("Crawling: " + url)
+  if len(boulders) + len(routes) < num_climbs:
+    response = s.get(url)
+    if response == None:
+      return
+
+    page_content = response.content.decode('latin-1')
+   
+    # Get all links on the page
+    links = get_links(page_content)
+
+    # Add the boulders on the page
+    get_climbs(page_content,url)
+
+    # Remove links which we dont want to follow
+    for word in ignore:
+      links = [link for link in links if not word in link]
+
+    # Only keep route and are links, this will get us all climbs
+    links = [link for link in links if 'mountainproject' in link and ('area' in link or 'route' in link)]
+
+    # Add the new links to our set so we don't visit them again
+    for link in links:
+      if not link in visited:
+        visited.add(link)
+        if len(visited) % 50 == 0:
+          print("\n***\n" + str(len(visited)) + " pages searched... " + str(len(boulders)) + " boulders found... " + str(len(routes)) + " routes found...\n***\n")
+        crawl(link)
+
+# Start crawling!        
+crawl('https://www.mountainproject.com')
+
+boulders = sorted(boulders, key=lambda x: (x[0],x[1]))
+routes = sorted(routes, key=lambda x: (x[0],x[1]))
+print('CLIMBS: \n')
+for boulder in boulders:
+  print(boulder)
+for route in routes:
+  print(route)
