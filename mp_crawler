@@ -7,9 +7,11 @@ import time
 
 sys.setrecursionlimit(100000)
 
-num_climbs = 200
+num_climbs = 130
 boulders = []
-routes = []
+sports = []
+trads = []
+topropes = []
 
 # Set up a session
 s = requests.session()
@@ -20,24 +22,34 @@ def get_links(content):
   return links
 
 # Get boulders from an HTML page
-def get_climbs(content,url):
-  grades = re.findall('''<h2 class="inline-block mr-2"><span class='rateYDS'>(...)''',content)
-  ratings = re.findall('''&nbsp;Avg: (...)''', content)
-  if len(grades) > 0 and len(ratings) > 0:
-    url = url.split('/')
-    name = url[-1]
-    rating = ratings[0]
+def get_climbs(content):
+  info = re.findall('''@type.*\s*\"name\": \"([^\"]*).*\s*\"description\": \"([^\"]*)''',content)
+  rating = re.findall('''&nbsp;Avg: (...)''',content)
+  if len(rating) > 0 and len(info) > 0:
+#    print(info)
+    rating = rating[0]
     if rating[-1] == 'f':
       rating = rating[0]
-    grade = grades[0]
-    if grade[0] == 'V':
-      grade = grade[:2]
-      print('Found boulder: ' + name + ": " + grade + ", " + rating + "/4 stars.")
+    name = info[0][0]
+    type = info[0][1]
+    type = type.split(" ")
+    grade = type[0]
+    type = type[1]
+    if type == 'Sport':
+      type = 'sport'
+      sports.append((grade,rating))
+    elif type == 'Boulder':
+      type = 'boulder'
       boulders.append((grade,rating))
-    if grade[0] == '5':
-      grade = grade
-      print('Found route: ' + name + ": " + grade + ", " + rating + "/4 stars.")
-      routes.append((grade,rating))
+    elif type == 'TR':
+      type = 'toprope'
+      topropes.append((grade,rating))
+    elif 'Trad' in type:
+      type = 'trad'
+      trads.append((grade,rating))
+    else:
+      type = 'unk'
+    print(name + " " + type + " " + grade + " " + rating + "/4 stars")
 
 # Set of seen links
 visited = set()
@@ -47,8 +59,8 @@ ignore = ['google','facebook','login','user','help','edit','share','upload','add
 
 # Crawl a link
 def crawl(url):
-  print("Crawling: " + url)
-  if len(boulders) + len(routes) < num_climbs:
+  #print("Crawling: " + url)
+  if len(boulders) + len(sports) + len(trads) < num_climbs:
     response = s.get(url)
     if response == None:
       return
@@ -58,8 +70,8 @@ def crawl(url):
     # Get all links on the page
     links = get_links(page_content)
 
-    # Add the boulders on the page
-    get_climbs(page_content,url)
+    # Add the climbs on the page
+    get_climbs(page_content)
 
     # Remove links which we dont want to follow
     for word in ignore:
@@ -72,17 +84,43 @@ def crawl(url):
     for link in links:
       if not link in visited:
         visited.add(link)
-        if len(visited) % 50 == 0:
-          print("\n***\n" + str(len(visited)) + " pages searched... " + str(len(boulders)) + " boulders found... " + str(len(routes)) + " routes found...\n***\n")
+        if len(visited) % 100 == 0:
+          print("\n***\n" + str(len(visited)) + " pages searched... " + str(len(boulders)) + " boulders found... " + str(len(sports)) + " sport routes found... " + str(len(trads)) + " trad routes found... " + str(len(topropes)) + " toprope routes found... \n***\n")
         crawl(link)
 
 # Start crawling!        
 crawl('https://www.mountainproject.com')
 
+# Sort and pint lists
 boulders = sorted(boulders, key=lambda x: (x[0],x[1]))
-routes = sorted(routes, key=lambda x: (x[0],x[1]))
-print('CLIMBS: \n')
+sports = sorted(sports, key=lambda x: (x[0],x[1]))
+trads = sorted(trads, key=lambda x: (x[0],x[1]))
+topropes = sorted(topropes, key=lambda x: (x[0],x[1]))
+print('CLIMBS: \n\n')
+
+print('\n\nBOULDERS: ')
 for boulder in boulders:
-  print(boulder)
-for route in routes:
-  print(route)
+  print(boulder[0] + ", " + boulder[1])
+print('\n\nSPORT ROUTES: ')
+for sport in sports:
+  print(sport[0] + ", " + sport[1])
+print('\n\nTRAD ROUTES: ')
+for trad in trads:
+  print(trad[0] + ", " + trad[1])
+print('\n\nTOPROPE ROUTES: ')
+for toprope in topropes:
+  print(toprope[0] + ", " + toprope[1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
