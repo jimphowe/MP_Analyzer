@@ -7,11 +7,12 @@ import time
 
 sys.setrecursionlimit(100000)
 
-num_climbs = 130
+num_climbs = 120
 boulders = []
 sports = []
 trads = []
 topropes = []
+alpines = []
 
 # Set up a session
 s = requests.session()
@@ -26,7 +27,6 @@ def get_climbs(content):
   info = re.findall('''@type.*\s*\"name\": \"([^\"]*).*\s*\"description\": \"([^\"]*)''',content)
   rating = re.findall('''&nbsp;Avg: (...)''',content)
   if len(rating) > 0 and len(info) > 0:
-#    print(info)
     rating = rating[0]
     if rating[-1] == 'f':
       rating = rating[0]
@@ -34,22 +34,19 @@ def get_climbs(content):
     type = info[0][1]
     type = type.split(" ")
     grade = type[0]
-    type = type[1]
-    if type == 'Sport':
-      type = 'sport'
+    type = type[1:]
+    #print("Type: " + str(type))
+    if 'Sport' in type:
       sports.append((grade,rating))
-    elif type == 'Boulder':
-      type = 'boulder'
+    if 'Boulder' in type:
       boulders.append((grade,rating))
-    elif type == 'TR':
-      type = 'toprope'
+    if 'TR' in type:
       topropes.append((grade,rating))
-    elif 'Trad' in type:
-      type = 'trad'
+    if 'Trad' in type:
       trads.append((grade,rating))
-    else:
-      type = 'unk'
-    print(name + " " + type + " " + grade + " " + rating + "/4 stars")
+    if 'Alpine' in type:
+      alpines.append((grade,rating))
+    print(name + " " + str(type) + " " + grade + " " + rating + "/4 stars")
 
 # Set of seen links
 visited = set()
@@ -59,8 +56,7 @@ ignore = ['google','facebook','login','user','help','edit','share','upload','add
 
 # Crawl a link
 def crawl(url):
-  #print("Crawling: " + url)
-  if len(boulders) + len(sports) + len(trads) < num_climbs:
+  if len(boulders) + len(sports) + len(trads) + len(topropes) + len(alpines) < num_climbs:
     response = s.get(url)
     if response == None:
       return
@@ -84,18 +80,27 @@ def crawl(url):
     for link in links:
       if not link in visited:
         visited.add(link)
-        if len(visited) % 100 == 0:
+        if len(visited) % 500 == 0:
           print("\n***\n" + str(len(visited)) + " pages searched... " + str(len(boulders)) + " boulders found... " + str(len(sports)) + " sport routes found... " + str(len(trads)) + " trad routes found... " + str(len(topropes)) + " toprope routes found... \n***\n")
         crawl(link)
 
 # Start crawling!        
 crawl('https://www.mountainproject.com')
 
-# Sort and pint lists
-boulders = sorted(boulders, key=lambda x: (x[0],x[1]))
-sports = sorted(sports, key=lambda x: (x[0],x[1]))
-trads = sorted(trads, key=lambda x: (x[0],x[1]))
-topropes = sorted(topropes, key=lambda x: (x[0],x[1]))
+
+
+# Define sorting orders for boulders and routes
+boulder_order = ['V-easy','VB','V-','V0','V0+','V0-1','V1-','V1','V1+','V1-2','V2-','V2','V2+','V2-3','V3-','V3','V3+','V3-4','V4-','V4','V4+','V4-5','V5-','V5','V5+','V5-6','V6-','V6','V6+','V6-7','V7-','V7','V7+','V7-8','V8-','V8','V8+','V8-9','V9-','V9','V9+','V9-10','V10-','V10','V10+','V10-11','V11-','V11','V11+','V11-12','V12-','V12','V12+','V12-13','V13-','V13','V13+','V13-14','V14-','V14']
+
+route_order = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10-','5.10','5.10+','5.10a','5.10b','5.10c','5.10d','5.11-','5.11','5.11+','5.11a','5.11b','5.11c','5.11d','5.12-','5.12','5.12+','5.12a','5.12b','5.12c','5.12d','5.13-','5.13','5.13+','5.13a','5.13b','5.13c','5.13d','5.14-','5.14','5.14+','5.14a','5.14b','5.14c','5.14d']
+
+
+# Sort and pint lists upon completion
+boulders = [boulder for grade in boulder_order for boulder in boulders if boulder[0] == grade]
+sports = [sport for grade in route_order for sport in sports if sport[0] == grade]
+trads = [trad for grade in route_order for trad in trads if trad[0] == grade]
+topropes = [toprope for grade in route_order for toprope in topropes if toprope[0] == grade]
+alpines = sorted(alpines, key=lambda x: (x[0],x[1]))
 print('CLIMBS: \n\n')
 
 print('\n\nBOULDERS: ')
@@ -110,15 +115,33 @@ for trad in trads:
 print('\n\nTOPROPE ROUTES: ')
 for toprope in topropes:
   print(toprope[0] + ", " + toprope[1])
+#print('\n\nALPINE ROUTES: ')
+#for alpine in alpines:
+#  print(alpine[0] + ", " + alpine[1])
+print('\n\n\n')
+
+def print_meta(climbs,order,type):
+  for grade in order:
+    sum = 0
+    count = 0
+    for climb in climbs:
+      if climb[0] == grade:
+        count += 1
+        sum += float(climb[1])
+    if count > 0:
+      avg = float(float(sum) / float(count))
+      print("Average stars for " + grade + " " + type + ": " + str(round(avg,2)))
 
 
-
-
-
-
-
-
-
+# Print meta info
+print('BOULDER AVERAGES\n')
+print_meta(boulders,boulder_order,'boulders')
+print('\n\n\nSPORT CLIMB AVERAGES\n')
+print_meta(sports,route_order,'sport climbs')
+print('\n\n\nTRAD CLIMB AVERAGES\n')
+print_meta(trads,route_order,'trad climbs')
+print('\n\n\nTOPROPE CLIMB AVERAGES\n')
+print_meta(topropes,route_order,'toprope climbs')
 
 
 
