@@ -3,11 +3,16 @@
 import requests
 import re
 import sys
-import time
+import argparse
 
 sys.setrecursionlimit(100000)
 
-num_climbs = 120
+parser = argparse.ArgumentParser()
+parser.add_argument("num_climbs",help="Specifiy the number of climbs to index here")
+args = parser.parse_args()
+
+num_climbs = int(args.num_climbs)
+
 boulders = []
 sports = []
 trads = []
@@ -92,8 +97,9 @@ crawl('https://www.mountainproject.com')
 # Define sorting orders for boulders and routes
 boulder_order = ['V-easy','VB','V-','V0','V0+','V0-1','V1-','V1','V1+','V1-2','V2-','V2','V2+','V2-3','V3-','V3','V3+','V3-4','V4-','V4','V4+','V4-5','V5-','V5','V5+','V5-6','V6-','V6','V6+','V6-7','V7-','V7','V7+','V7-8','V8-','V8','V8+','V8-9','V9-','V9','V9+','V9-10','V10-','V10','V10+','V10-11','V11-','V11','V11+','V11-12','V12-','V12','V12+','V12-13','V13-','V13','V13+','V13-14','V14-','V14']
 
-route_order = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10-','5.10','5.10+','5.10a','5.10b','5.10c','5.10d','5.11-','5.11','5.11+','5.11a','5.11b','5.11c','5.11d','5.12-','5.12','5.12+','5.12a','5.12b','5.12c','5.12d','5.13-','5.13','5.13+','5.13a','5.13b','5.13c','5.13d','5.14-','5.14','5.14+','5.14a','5.14b','5.14c','5.14d']
+route_order = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10-','5.10a','5.10-','5.10b','5.10','5.10c','5.10+','5.10d','5.11a','5.11-','5.11b','5.11','5.11c','5.11+','5.11d','5.12a','5.12-','5.12b','5.12','5.12c','5.12+','5.12d','5.13a','5.13-','5.13b','5.13','5.13c','5.13+','5.13d','5.14a','5.14-','5.14b','5.14','5.14c','5.14+','5.14d']
 
+route_order2 = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d']
 
 # Sort and pint lists upon completion
 boulders = [boulder for grade in boulder_order for boulder in boulders if boulder[0] == grade]
@@ -101,24 +107,24 @@ sports = [sport for grade in route_order for sport in sports if sport[0] == grad
 trads = [trad for grade in route_order for trad in trads if trad[0] == grade]
 topropes = [toprope for grade in route_order for toprope in topropes if toprope[0] == grade]
 alpines = sorted(alpines, key=lambda x: (x[0],x[1]))
-print('CLIMBS: \n\n')
+#print('CLIMBS: \n\n')
 
-print('\n\nBOULDERS: ')
-for boulder in boulders:
-  print(boulder[0] + ", " + boulder[1])
-print('\n\nSPORT ROUTES: ')
-for sport in sports:
-  print(sport[0] + ", " + sport[1])
-print('\n\nTRAD ROUTES: ')
-for trad in trads:
-  print(trad[0] + ", " + trad[1])
-print('\n\nTOPROPE ROUTES: ')
-for toprope in topropes:
-  print(toprope[0] + ", " + toprope[1])
+#print('\n\nBOULDERS: ')
+#for boulder in boulders:
+#  print(boulder[0] + ", " + boulder[1])
+#print('\n\nSPORT ROUTES: ')
+#for sport in sports:
+#  print(sport[0] + ", " + sport[1])
+#print('\n\nTRAD ROUTES: ')
+#for trad in trads:
+#  print(trad[0] + ", " + trad[1])
+#print('\n\nTOPROPE ROUTES: ')
+#for toprope in topropes:
+#  print(toprope[0] + ", " + toprope[1])
 #print('\n\nALPINE ROUTES: ')
 #for alpine in alpines:
 #  print(alpine[0] + ", " + alpine[1])
-print('\n\n\n')
+#print('\n\n\n')
 
 def print_meta(climbs,order,type):
   for grade in order:
@@ -130,11 +136,12 @@ def print_meta(climbs,order,type):
         sum += float(climb[1])
     if count > 0:
       avg = float(float(sum) / float(count))
-      print("Average stars for " + grade + " " + type + ": " + str(round(avg,2)))
+      print("Average stars for (" + str(count) + ") " + grade + " " + type + ": " + str(round(avg,2)))
 
 
 # Print meta info
-print('BOULDER AVERAGES\n')
+print('\n\n\n\n*******************\n* RATING AVERAGES *\n*******************\n')
+print('\n\n\nBOULDER AVERAGES\n')
 print_meta(boulders,boulder_order,'boulders')
 print('\n\n\nSPORT CLIMB AVERAGES\n')
 print_meta(sports,route_order,'sport climbs')
@@ -142,8 +149,6 @@ print('\n\n\nTRAD CLIMB AVERAGES\n')
 print_meta(trads,route_order,'trad climbs')
 print('\n\n\nTOPROPE CLIMB AVERAGES\n')
 print_meta(topropes,route_order,'toprope climbs')
-
-
 
 
 
