@@ -1,0 +1,208 @@
+
+
+
+Found in total: 13808 boulders, 11338 sport climbs, 13119 trad climbs, and 4557 toprope climbs.
+
+*******************
+* RATING AVERAGES *
+*******************
+
+
+BOULDER AVERAGES
+Average stars for (959) V-easy boulders: 1.41
+Average stars for (1715) V0 boulders: 1.79
+Average stars for (337) V0+ boulders: 1.88
+Average stars for (195) V0-1 boulders: 2.02
+Average stars for (83) V1- boulders: 1.91
+Average stars for (1487) V1 boulders: 1.99
+Average stars for (208) V1+ boulders: 2.16
+Average stars for (219) V1-2 boulders: 2.2
+Average stars for (73) V2- boulders: 2.06
+Average stars for (1496) V2 boulders: 2.19
+Average stars for (153) V2+ boulders: 2.34
+Average stars for (214) V2-3 boulders: 2.46
+Average stars for (83) V3- boulders: 2.22
+Average stars for (1304) V3 boulders: 2.38
+Average stars for (98) V3+ boulders: 2.42
+Average stars for (149) V3-4 boulders: 2.52
+Average stars for (53) V4- boulders: 2.59
+Average stars for (1033) V4 boulders: 2.57
+Average stars for (77) V4+ boulders: 2.34
+Average stars for (105) V4-5 boulders: 2.58
+Average stars for (30) V5- boulders: 2.54
+Average stars for (732) V5 boulders: 2.69
+Average stars for (58) V5+ boulders: 2.46
+Average stars for (89) V5-6 boulders: 2.66
+Average stars for (29) V6- boulders: 2.58
+Average stars for (570) V6 boulders: 2.81
+Average stars for (26) V6+ boulders: 2.9
+Average stars for (68) V6-7 boulders: 2.63
+Average stars for (19) V7- boulders: 2.91
+Average stars for (429) V7 boulders: 2.92
+Average stars for (23) V7+ boulders: 2.64
+Average stars for (51) V7-8 boulders: 2.83
+Average stars for (25) V8- boulders: 3.14
+Average stars for (275) V8 boulders: 2.92
+Average stars for (14) V8+ boulders: 3.14
+Average stars for (43) V8-9 boulders: 2.85
+Average stars for (8) V9- boulders: 3.11
+Average stars for (187) V9 boulders: 2.97
+Average stars for (9) V9+ boulders: 2.08
+Average stars for (14) V9-10 boulders: 2.35
+Average stars for (14) V10- boulders: 2.96
+Average stars for (119) V10 boulders: 2.87
+Average stars for (4) V10+ boulders: 2.5
+Average stars for (11) V10-11 boulders: 2.43
+Average stars for (3) V11- boulders: 2.33
+Average stars for (50) V11 boulders: 3.02
+Average stars for (2) V11+ boulders: 2.5
+Average stars for (6) V11-12 boulders: 3.25
+Average stars for (2) V12- boulders: 2.65
+Average stars for (35) V12 boulders: 2.88
+Average stars for (1) V12+ boulders: 3.5
+Average stars for (1) V12-13 boulders: 4.0
+Average stars for (7) V13 boulders: 3.43
+Average stars for (1) V13-14 boulders: 3.0
+Average stars for (3) V14 boulders: 2.67
+
+
+
+SPORT CLIMB AVERAGES
+Average stars for (57) 5.4 sport climbs: 1.79
+Average stars for (105) 5.5 sport climbs: 1.77
+Average stars for (280) 5.6 sport climbs: 1.83
+Average stars for (532) 5.7 sport climbs: 1.93
+Average stars for (69) 5.7+ sport climbs: 2.11
+Average stars for (33) 5.8- sport climbs: 1.95
+Average stars for (807) 5.8 sport climbs: 2.04
+Average stars for (123) 5.8+ sport climbs: 2.06
+Average stars for (68) 5.9- sport climbs: 2.28
+Average stars for (997) 5.9 sport climbs: 2.17
+Average stars for (193) 5.9+ sport climbs: 2.21
+Average stars for (76) 5.10- sport climbs: 2.29
+Average stars for (976) 5.10a sport climbs: 2.28
+Average stars for (76) 5.10- sport climbs: 2.29
+Average stars for (795) 5.10b sport climbs: 2.36
+Average stars for (86) 5.10 sport climbs: 2.2
+Average stars for (715) 5.10c sport climbs: 2.45
+Average stars for (83) 5.10+ sport climbs: 2.22
+Average stars for (532) 5.10d sport climbs: 2.46
+Average stars for (747) 5.11a sport climbs: 2.58
+Average stars for (54) 5.11- sport climbs: 2.42
+Average stars for (582) 5.11b sport climbs: 2.61
+Average stars for (72) 5.11 sport climbs: 2.35
+Average stars for (474) 5.11c sport climbs: 2.71
+Average stars for (88) 5.11+ sport climbs: 2.54
+Average stars for (343) 5.11d sport climbs: 2.81
+Average stars for (513) 5.12a sport climbs: 2.83
+Average stars for (41) 5.12- sport climbs: 2.66
+Average stars for (310) 5.12b sport climbs: 2.9
+Average stars for (32) 5.12 sport climbs: 2.73
+Average stars for (225) 5.12c sport climbs: 2.96
+Average stars for (25) 5.12+ sport climbs: 2.62
+Average stars for (163) 5.12d sport climbs: 3.14
+Average stars for (147) 5.13a sport climbs: 3.01
+Average stars for (17) 5.13- sport climbs: 2.79
+Average stars for (75) 5.13b sport climbs: 3.33
+Average stars for (14) 5.13 sport climbs: 2.59
+Average stars for (45) 5.13c sport climbs: 3.12
+Average stars for (6) 5.13+ sport climbs: 2.87
+Average stars for (24) 5.13d sport climbs: 2.98
+Average stars for (27) 5.14a sport climbs: 3.19
+Average stars for (1) 5.14- sport climbs: 2.0
+Average stars for (12) 5.14b sport climbs: 2.96
+Average stars for (2) 5.14 sport climbs: 3.0
+Average stars for (2) 5.14c sport climbs: 4.0
+Average stars for (1) 5.14+ sport climbs: 3.0
+
+
+
+TRAD CLIMB AVERAGES
+Average stars for (240) 5.4 trad climbs: 1.6
+Average stars for (321) 5.5 trad climbs: 1.6
+Average stars for (724) 5.6 trad climbs: 1.73
+Average stars for (1250) 5.7 trad climbs: 1.81
+Average stars for (161) 5.7+ trad climbs: 2.03
+Average stars for (110) 5.8- trad climbs: 1.82
+Average stars for (1559) 5.8 trad climbs: 1.92
+Average stars for (252) 5.8+ trad climbs: 2.16
+Average stars for (78) 5.9- trad climbs: 2.04
+Average stars for (1615) 5.9 trad climbs: 2.04
+Average stars for (328) 5.9+ trad climbs: 2.22
+Average stars for (150) 5.10- trad climbs: 2.14
+Average stars for (1155) 5.10a trad climbs: 2.13
+Average stars for (150) 5.10- trad climbs: 2.14
+Average stars for (864) 5.10b trad climbs: 2.27
+Average stars for (224) 5.10 trad climbs: 2.16
+Average stars for (648) 5.10c trad climbs: 2.32
+Average stars for (196) 5.10+ trad climbs: 2.43
+Average stars for (473) 5.10d trad climbs: 2.51
+Average stars for (484) 5.11a trad climbs: 2.52
+Average stars for (82) 5.11- trad climbs: 2.61
+Average stars for (325) 5.11b trad climbs: 2.68
+Average stars for (114) 5.11 trad climbs: 2.67
+Average stars for (254) 5.11c trad climbs: 2.76
+Average stars for (98) 5.11+ trad climbs: 2.85
+Average stars for (140) 5.11d trad climbs: 2.84
+Average stars for (177) 5.12a trad climbs: 2.94
+Average stars for (39) 5.12- trad climbs: 2.98
+Average stars for (80) 5.12b trad climbs: 3.12
+Average stars for (37) 5.12 trad climbs: 3.13
+Average stars for (54) 5.12c trad climbs: 3.3
+Average stars for (18) 5.12+ trad climbs: 3.32
+Average stars for (23) 5.12d trad climbs: 3.12
+Average stars for (31) 5.13a trad climbs: 3.33
+Average stars for (6) 5.13- trad climbs: 3.83
+Average stars for (12) 5.13b trad climbs: 3.45
+Average stars for (1) 5.13 trad climbs: 4.0
+Average stars for (4) 5.13c trad climbs: 3.5
+Average stars for (2) 5.13+ trad climbs: 1.75
+Average stars for (5) 5.13d trad climbs: 3.82
+Average stars for (2) 5.14a trad climbs: 2.0
+Average stars for (1) 5.14- trad climbs: 4.0
+Average stars for (3) 5.14c trad climbs: 3.5
+
+
+
+TOPROPE CLIMB AVERAGES
+Average stars for (121) 5.4 toprope climbs: 1.81
+Average stars for (152) 5.5 toprope climbs: 1.8
+Average stars for (292) 5.6 toprope climbs: 1.89
+Average stars for (361) 5.7 toprope climbs: 1.89
+Average stars for (78) 5.7+ toprope climbs: 2.0
+Average stars for (52) 5.8- toprope climbs: 1.73
+Average stars for (432) 5.8 toprope climbs: 1.96
+Average stars for (118) 5.8+ toprope climbs: 2.24
+Average stars for (39) 5.9- toprope climbs: 1.86
+Average stars for (452) 5.9 toprope climbs: 1.96
+Average stars for (148) 5.9+ toprope climbs: 2.2
+Average stars for (35) 5.10- toprope climbs: 2.14
+Average stars for (299) 5.10a toprope climbs: 2.09
+Average stars for (35) 5.10- toprope climbs: 2.14
+Average stars for (209) 5.10b toprope climbs: 2.1
+Average stars for (123) 5.10 toprope climbs: 1.94
+Average stars for (177) 5.10c toprope climbs: 2.13
+Average stars for (84) 5.10+ toprope climbs: 2.12
+Average stars for (130) 5.10d toprope climbs: 2.22
+Average stars for (207) 5.11a toprope climbs: 2.19
+Average stars for (28) 5.11- toprope climbs: 2.29
+Average stars for (115) 5.11b toprope climbs: 2.32
+Average stars for (80) 5.11 toprope climbs: 2.08
+Average stars for (93) 5.11c toprope climbs: 2.38
+Average stars for (46) 5.11+ toprope climbs: 2.38
+Average stars for (68) 5.11d toprope climbs: 2.34
+Average stars for (104) 5.12a toprope climbs: 2.37
+Average stars for (10) 5.12- toprope climbs: 2.27
+Average stars for (42) 5.12b toprope climbs: 2.15
+Average stars for (39) 5.12 toprope climbs: 2.46
+Average stars for (16) 5.12c toprope climbs: 2.76
+Average stars for (17) 5.12+ toprope climbs: 2.11
+Average stars for (7) 5.12d toprope climbs: 2.41
+Average stars for (12) 5.13a toprope climbs: 2.37
+Average stars for (2) 5.13- toprope climbs: 2.65
+Average stars for (1) 5.13b toprope climbs: 0.0
+Average stars for (4) 5.13 toprope climbs: 3.5
+Average stars for (1) 5.13c toprope climbs: 3.5
+Average stars for (4) 5.13+ toprope climbs: 0.75
+Average stars for (1) 5.14a toprope climbs: 3.0
+Average stars for (1) 5.14 toprope climbs: 0.0

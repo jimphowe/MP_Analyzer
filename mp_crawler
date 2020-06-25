@@ -4,8 +4,6 @@ import requests
 import re
 import sys
 import argparse
-import altair
-import pandas
 import time
 
 # Lists for findings of each type
@@ -15,16 +13,15 @@ trads = []
 topropes = []
 
 # Define sorting orders for boulders and routes
-boulder_order = ['V-easy','VB','V-','V0','V0+','V0-1','V1-','V1','V1+','V1-2','V2-','V2','V2+','V2-3','V3-','V3','V3+','V3-4','V4-','V4','V4+','V4-5','V5-','V5','V5+','V5-6','V6-','V6','V6+','V6-7','V7-','V7','V7+','V7-8','V8-','V8','V8+','V8-9','V9-','V9','V9+','V9-10','V10-','V10','V10+','V10-11','V11-','V11','V11+','V11-12','V12-','V12','V12+','V12-13','V13-','V13','V13+','V13-14','V14-','V14']
+boulder_order = ['V-easy','VB','V-','V0','V0+','V0-1','V1-','V1','V1+','V1-2','V2-','V2','V2+','V2-3','V3-','V3','V3+','V3-4','V4-','V4','V4+','V4-5','V5-','V5','V5+','V5-6','V6-','V6','V6+','V6-7','V7-','V7','V7+','V7-8','V8-','V8','V8+','V8-9','V9-','V9','V9+','V9-10','V10-','V10','V10+','V10-11','V11-','V11','V11+','V11-12','V12-','V12','V12+','V12-13','V13-','V13','V13+','V13-14','V14-','V14','V14+','V14-15','V15-','V15','V15+','V15-16','V16-','V16','V16-17','V17-','V17']
 
-route_order = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10-','5.10a','5.10-','5.10b','5.10','5.10c','5.10+','5.10d','5.11a','5.11-','5.11b','5.11','5.11c','5.11+','5.11d','5.12a','5.12-','5.12b','5.12','5.12c','5.12+','5.12d','5.13a','5.13-','5.13b','5.13','5.13c','5.13+','5.13d','5.14a','5.14-','5.14b','5.14','5.14c','5.14+','5.14d']
+route_order = ['5.4','5.5-','5.5','5.5+','5.6-','5.6','5.6+','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10a','5.10-','5.10b','5.10','5.10c','5.10+','5.10d','5.11a','5.11-','5.11b','5.11','5.11c','5.11+','5.11d','5.12a','5.12-','5.12b','5.12','5.12c','5.12+','5.12d','5.13a','5.13-','5.13b','5.13','5.13c','5.13+','5.13d','5.14a','5.14-','5.14b','5.14','5.14c','5.14+','5.14d','5.15a','5.15-','5.15b','5.15','5.15c','5.15+','5.15d']
 
 # Set of seen links
 visited = set()
 
 # Types of link we don't want to follow...
 ignore = ['google','facebook','login','user','help','edit','share','upload','add','photo','forum','stats','print','map']
-
 
 # Get links from a html page
 def get_links(content):
@@ -82,13 +79,17 @@ def crawl(url):
     for link in links:
       if not link in visited:
         visited.add(link)
+        #print an update every [num] links
         if len(visited) % 500 == 0:
           print("\n***\n" + str(len(visited)) + " pages searched... " + str(len(boulders)) + " boulders found... " + str(len(sports)) + " sport routes found... " + str(len(trads)) + " trad routes found... " + str(len(topropes)) + " toprope routes found... \n***\n")
+        #write results to a file every [num] links (in case it gets blocked before completing)
+        if len(visited) % 200 == 0:
+          write_results()
         crawl(link)
 
 # Prints information about a specific type of climb
-def print_type_info(climbs,order,type):
-  data = []
+def get_type_info(climbs,order,type):
+  result = ""
   for grade in order:
     sum = 0
     count = 0
@@ -98,9 +99,24 @@ def print_type_info(climbs,order,type):
         sum += float(climb[1])
     if count > 0:
       avg = float(float(sum) / float(count))
-      data.append((grade,avg))
-      print("Average stars for (" + str(count) + ") " + grade + " " + type + ": " + str(round(avg,2)))
-  return data
+      result += "Average stars for (" + str(count) + ") " + grade + " " + type + ": " + str(round(avg,2)) + "\n"
+  return result
+
+
+# Write meta info to a file
+def write_results():
+  f = open("output.txt","w")
+  f.write('\n\n\nFound in total: ' + str(len(boulders)) + ' boulders, ' + str(len(sports)) + ' sport climbs, ' + str(len(trads)) + ' trad climbs, and ' + str(len(topropes)) + ' toprope climbs.')
+  f.write('\n\n*******************\n* RATING AVERAGES *\n*******************')
+  f.write('\n\n\nBOULDER AVERAGES\n')
+  f.write(get_type_info(boulders,boulder_order,'boulders'))
+  f.write('\n\n\nSPORT CLIMB AVERAGES\n')
+  f.write(get_type_info(sports,route_order,'sport climbs'))
+  f.write('\n\n\nTRAD CLIMB AVERAGES\n')
+  f.write(get_type_info(trads,route_order,'trad climbs'))
+  f.write('\n\n\nTOPROPE CLIMB AVERAGES\n')
+  f.write(get_type_info(topropes,route_order,'toprope climbs'))
+  f.close()
 
 if __name__ == '__main__':
   sys.setrecursionlimit(100000)
@@ -116,22 +132,4 @@ if __name__ == '__main__':
 
   crawl('https://www.mountainproject.com')
 
-  # Sorts lists upon completion
-  boulders = [boulder for grade in boulder_order for boulder in boulders if boulder[0] == grade]
-  sports = [sport for grade in route_order for sport in sports if sport[0] == grade]
-  trads = [trad for grade in route_order for trad in trads if trad[0] == grade]
-  topropes = [toprope for grade in route_order for toprope in topropes if toprope[0] == grade]
-
-  # Print meta info
-  print('\n\n\nFound in total: ' + str(len(boulders)) + ' boulders, ' + str(len(sports)) + ' sport climbs, ' + str(len(trads)) + ' trad climbs, and ' + str(len(topropes)) + ' toprope climbs.')
-
-  print('\n\n*******************\n* RATING AVERAGES *\n*******************')
-  print('\n\n\nBOULDER AVERAGES\n')
-  boulder_data = print_type_info(boulders,boulder_order,'boulders')
-  print('\n\n\nSPORT CLIMB AVERAGES\n')
-  sport_data = print_type_info(sports,route_order,'sport climbs')
-  print('\n\n\nTRAD CLIMB AVERAGES\n')
-  trad_data = print_type_info(trads,route_order,'trad climbs')
-  print('\n\n\nTOPROPE CLIMB AVERAGES\n')
-  toprope_data = print_type_info(topropes,route_order,'toprope climbs')
-  print('\n\n\n')
+  write_results()
