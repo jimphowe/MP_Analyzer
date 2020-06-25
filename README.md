@@ -11,3 +11,6 @@ or
 ./mp_analyzer [num]
 
 [num] is the number of total routes (sport + trad + boulder + toprope) that you want to crawl. Choose a small number to test for yourself. Additional results are included in this repository.
+
+
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/running_example.png?raw=true)
