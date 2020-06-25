@@ -23,4 +23,4 @@ When running, the terminal will display routes and their meta dat as they are di
 
 At regular intervals the rogram output will be written to a file "output.txt". An example of this format is below.
 
-![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/output.txt?raw=true)
+![text](https://github.com/jimphowe/MP_Analyzer/blob/master/output.txt?raw=true)
