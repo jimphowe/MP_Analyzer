@@ -18,19 +18,19 @@ or
 When running, the terminal will display routes and their meta dat as they are discovered.
 
 
-![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/running_example.png?raw=true)
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/running_example.png?raw=true)
 
 
 At regular intervals the rogram output will be written to a file "output.txt". An example of this format is below.
 
-![output.txt](https://github.com/jimphowe/MP_Analyzer/blob/master/output.txt?raw=true)
+![output.txt](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/output.txt?raw=true)
 
 <h1>Results in graph form, representing 20-25% of the climbs on mountain project:</h1>
 
 <h2>Boulders:</h2>
 
-![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/Boulder%20Grade%20vs.%20Quantity.png?raw=true)
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Boulder%20Grade%20vs.%20Quantity.png?raw=true)
 
-![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/Boulder%20Grade%20vs.%20Quality.png?raw=true)
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Boulder%20Grade%20vs.%20Quality.png?raw=true)
 
 
