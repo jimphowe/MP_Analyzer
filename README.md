@@ -18,7 +18,7 @@ At regular intervals the program output will be written to a file "output.txt". 
 
 ![output.txt](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/output.txt?raw=true)
 
-<h2>Results in graph form, representing 20-25% of the climbs on MP:</h2>
+<h2>Results in graph form, representing ~20% of the climbs on MP:</h2>
 
 <h1>Boulders:</h1>
 
