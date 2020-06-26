@@ -2,11 +2,6 @@
 
 <br>
 <br>
-<br>
-
-<center><h2>Results in graph form, representing ~20% of the climbs on MP</h2></center>
-
-<br>
 
 <h1>Boulders:</h1>
 
@@ -20,7 +15,7 @@
 
 ![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Sport%20Grade%20vs.%20Quality.png?raw=true)
 
-<h1>Trad Routes:</h!>
+<h1>Trad Routes:</h1>
 
 ![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Trad%20Grade%20vs.%20Quantity.png?raw=true)
 
@@ -29,7 +24,7 @@
 
 <strong>[WARNING]</strong> please do not crawl all of mountain project with this script. This will slow down their servers. Data from a signifigant portion of mountain project is included below.
 
-This is a webcrawler for MountainProject.com. It collects data on many types of climbing routes (boulder,sport,trad) and give stats about the number of each grade of route and the average quality ratings for each grade.
+This is a webcrawler for MountainProject.com. It collects data on many types of climbing routes (boulder,sport,trad) and give stats about the number of each grade of route and the average quality ratings for each grade. The data shown above represents around 20% of the climbs on mountain project.
 
 Syntax: 'python3 mp-analyzer [num]' or './mp_analyzer [num]'
 
