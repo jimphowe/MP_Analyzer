@@ -1,6 +1,7 @@
 # MP_Analyzer
 
-<h2>Results in graph form, representing ~20% of the climbs on MP:</h2>
+
+                               <h2>Results in graph form, representing ~20% of the climbs on MP</h2>
 
 <h1>Boulders:</h1>
 
