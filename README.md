@@ -1,10 +1,8 @@
 # MP_Analyzer
 
-[WARNING] please do not crawl all of mountain project with this script. This will slow down their servers. Data from a signifigant portion of mountain project is included below.
+<strong>[WARNING]</strong> please do not crawl all of mountain project with this script. This will slow down their servers. Data from a signifigant portion of mountain project is included below.
 
-This is a webcrawler for MountainProject.com
-
-It collects data on many types of climbing routes (boulder,sport,trad) and give stats about the number of each grade of route and the average quality ratings for each grade.
+This is a webcrawler for MountainProject.com. It collects data on many types of climbing routes (boulder,sport,trad) and give stats about the number of each grade of route and the average quality ratings for each grade.
 
 Syntax:
 
