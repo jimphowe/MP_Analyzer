@@ -25,7 +25,7 @@ At regular intervals the rogram output will be written to a file "output.txt". A
 
 ![output.txt](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/output.txt?raw=true)
 
-<h1>Results in graph form, representing 20-25% of the climbs on mountain project:</h1>
+<h1>Results in graph form, representing 20-25% of the climbs on MP:</h1>
 
 <h2>Boulders:</h2>
 
