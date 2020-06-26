@@ -27,4 +27,6 @@ At regular intervals the rogram output will be written to a file "output.txt". A
 
 Results in graph form, representing ~20% of the climb on mountain project:
 
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/Boulder%20Grade%20vs.%20Quantity.png?raw=true)
+
 
