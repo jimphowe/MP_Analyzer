@@ -33,4 +33,10 @@ At regular intervals the rogram output will be written to a file "output.txt". A
 
 ![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Boulder%20Grade%20vs.%20Quality.png?raw=true)
 
+<h2>Sport Routes:</h2>
+
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Sport%20Grade%20vs.%20Quantity.png?raw=true)
+
+![alt text](https://github.com/jimphowe/MP_Analyzer/blob/master/resources/Sport%20Grade%20vs.%20Quality.png?raw=true)
+
 
